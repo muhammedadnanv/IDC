@@ -388,13 +388,31 @@ $(document).ready(function() {
                     }]
                 }]
             };
-            var mapElement = document.getElementById('map');
-            var map = new google.maps.Map(mapElement, mapOptions);
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(40.6700, -73.9400),
-                map: map,
-                title: 'Snazzy!'
-            });
+           // Initialize the map
+function initMap() {
+    var mapOptions = {
+        zoom: 15,
+        center: { lat: 11.3265725, lng: 75.7628101 },  // Coordinates from the provided URL
+        mapTypeId: 'roadmap'
+    };
+
+    // Select the HTML element where the map will be rendered
+    var mapElement = document.getElementById('map');
+
+    // Create the map instance
+    var map = new google.maps.Map(mapElement, mapOptions);
+
+    // Add a marker at IDC Interior Studio's location
+    var marker = new google.maps.Marker({
+        position: { lat: 11.3265725, lng: 75.7628101 },
+        map: map,
+        title: 'IDC Interior Studio'
+    });
+}
+
+// Initialize the map when the window loads
+window.onload = initMap;
+
         }
     }
 
